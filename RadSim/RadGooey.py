@@ -45,8 +45,8 @@ ISOTOPES = [
 AVOGADRO = 6.022e23
 
 class RadSim:
-    def __init__(self):
-        self.root = tk.Tk()
+    def __init__(self, root):
+        self.root = root
         self.root.iconphoto(True, tk.PhotoImage(file='greenatom.png'))
         self.root.title("Radioactive Decay Simulator")
         self.root.geometry("525x540")
@@ -90,7 +90,6 @@ class RadSim:
         self.btn_pause.pack(pady=10)
         
         self.load_gif("decay.gif")
-        self.root.mainloop()
 
     def load_gif(self, gif_path, width=150, height=200):
         try:
@@ -240,4 +239,6 @@ class RadSim:
         self.paused = False
 
 if __name__ == "__main__":
-    RadSim()
+    root = tk.Tk()
+    app = RadSim(root)
+    root.mainloop()
